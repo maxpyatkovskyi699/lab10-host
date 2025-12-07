@@ -17,8 +17,6 @@ import os
 
 load_dotenv()
 
-DEBUG = os.getenv("PROJECT_DEBUG", "True") == "True"
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,12 +30,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("PROJECT_SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("PROJECT_DEBUG", "False") == "True"
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = [h.strip() for h in os.getenv("PROJECT_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")]
+ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")]
 
 
 # Application definition
@@ -91,7 +89,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.getenv("PROJECT_DATABASE_URL"),
+        default=os.getenv("DATABASE_URL"),
         conn_max_age=600,
         ssl_require=not DEBUG 
     )
