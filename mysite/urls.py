@@ -25,6 +25,6 @@ def secure_admin(request):
     return admin.site.urls(request)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('super-secret-admin/', admin.site.urls),
     path('', include('testapp.urls')),   # підключаємо маршрути testapp
 ]
