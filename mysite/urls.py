@@ -16,6 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.http import HttpResponseForbidden
+
+def secure_admin(request):
+    if not request.user.is_authenticated:
+        return HttpResponseForbidden("Access denied")
+    return admin.site.urls(request)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
