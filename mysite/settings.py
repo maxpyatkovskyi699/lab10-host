@@ -142,3 +142,14 @@ CSRF_TRUSTED_ORIGINS = [
     "https://web-production-d1fb5.up.railway.app",
     "https://*.up.railway.app",
 ]
+
+# HTTPS security
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = not DEBUG
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
