@@ -72,7 +72,7 @@ python manage.py migrate
 python manage.py collectstatic --noinput
 ```
 
-8. Запустити застосунок через:
+9. Запустити застосунок через:
 
 ```bash
 gunicorn mysite.wsgi
